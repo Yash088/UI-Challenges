@@ -1,0 +1,50 @@
+@mixin remove_userTapColor {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+@mixin flex($direction: row, $align-items: center, $justify-content: center) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: $align-items;
+  justify-content: $justify-content;
+}
+details {
+  background-color: transparent;
+  border-radius: 8px;
+  box-shadow: 0 0 10px  rgba(0, 0, 0, 0.25); 
+}
+details summary {
+  cursor: pointer;
+  @include remove_userTapColor;
+  transition: all 200ms ease-in-out;
+}
+
+summary {
+  list-style: none;
+  padding: 1rem 1.37rem;
+  border-radius: 8px;
+  background-color: #fff;
+}
+.summary-container {
+  @include flex(row, flex-start, space-between);
+  color: #333b48;
+  font-size: 1rem;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+
+details[open] summary {
+  margin-bottom: 10px;
+}
+.faq-content {
+  padding: 0 20px 10px 20px;
+  color: #5a5f66;
+  @include flex(row, flex-start, flex-start);
+}
